@@ -22,7 +22,16 @@ const resolvers = {
             
       return { token, user };
     },
+    login: async (_parent: any, { email, password }: { email: string; password: string }): Promise<{ token: string; user: IUserDocument }> => {
+      const user = await User.findOne({ email });
 
+      if (!user || !(await user.isCorrectPassword(password))) {
+        throw new AuthenticationError('Invalid credentials');
+      }
+
+      const token = signToken(user.username, user.email, user._id);
+      return { token, user };
+    },
 
 
 
