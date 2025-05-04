@@ -21,7 +21,9 @@ npm run build
 npm run develop
 ```
 
-Be aware you will need MongoDB to run locally. Use .env.EXAMPLE at server root to configure for yourself. Below is a screenshot from within the application after registering a user, and logging some books.
+NOTE: Be aware you will need MongoDB to run locally. Use .env.EXAMPLE at server root to configure for yourself. 
+
+And finally, below is a screenshot from within the application after registering a user, and logging some books.
 
 ![Demonstration](./server/src/images/BookSearch.png)
 
