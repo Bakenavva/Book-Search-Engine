@@ -45,15 +45,20 @@ const resolvers = {
 
       throw new AuthenticationError('User not authenticated');
     },
+    removeBook: async (_parent: any, { bookId }: { bookId: string }, context: IUserContext): Promise<IUserDocument | null> => {
+      if (context.user) {
+        const updatedUser = await User.findOneAndUpdate(
+          { _id: context.user._id },
+          { $pull: { savedBooks: { bookId } } },
+          { new: true }
+        );
 
+        return updatedUser;
+      }
 
-
-
-
-
-
-  }
-
-}
+      throw new AuthenticationError('User not authenticated');
+    },
+  },
+};
 
 export default resolvers;
