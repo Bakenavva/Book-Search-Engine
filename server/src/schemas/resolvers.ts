@@ -15,11 +15,23 @@ const resolvers = {
       throw new AuthenticationError('User not authenticated');
     },
   },
+  Mutation: {
+    addUser: async (_parent: any, args: any): Promise<{ token: string; user: IUserDocument }> => {
+      const user = await User.create(args);
+      const token = signToken(user.username, user.email, user._id);
+            
+      return { token, user };
+    },
 
 
 
 
 
+
+
+
+
+  }
 
 }
 
