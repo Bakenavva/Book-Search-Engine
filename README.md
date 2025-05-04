@@ -26,9 +26,9 @@ Be aware you will need MongoDB to run locally. Use .env.EXAMPLE at server root t
 ![Demonstration](./server/src/images/BookSearch.png)
 
 ## Technologies
-JavaScript/TypeScript
-Google Books API
-MongoDB
+- JavaScript/TypeScript
+- Google Books API
+- MongoDB
 
 ## License
 This project is licensed under the MIT license.
